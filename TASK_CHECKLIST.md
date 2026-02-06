@@ -28,6 +28,16 @@
 - Task checklist file created  
   Commit: 52c8f63
 
+- Added login, register and dashboard
+  Commit: 93b818d
+
+- added authService  
+  Commit: 0d35e7b
+
+- Added updates on FRS 
+  Commit: e169880
+
+
 ## IN-PROGRESS
 - Backend user registration API
 - Backend login API with authentication
