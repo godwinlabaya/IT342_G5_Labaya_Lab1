@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [form, setForm] = useState({
@@ -8,6 +8,7 @@ export default function Register() {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -15,8 +16,13 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/api/auth/register", form);
-    alert("Registered successfully!");
+    try {
+      await axios.post("http://localhost:8080/api/auth/register", form);
+      alert("Registered successfully!");
+      navigate("/");
+    } catch (error) {
+      alert("Registration failed. Please try again.");
+    }
   };
 
   return (
