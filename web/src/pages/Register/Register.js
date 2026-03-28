@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Register.css";
+import "./Register.css";  // ← Make sure this path is correct
 import { supabase } from "../../supabaseClient";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -9,6 +9,9 @@ export default function Register() {
     lastName: "",
     email: "",
     password: "",
+    confirmPassword: "",
+    securityQuestion: "",
+    securityAnswer: ""
   });
 
   const navigate = useNavigate();
@@ -21,6 +24,11 @@ export default function Register() {
     e.preventDefault();
 
     // 1. Create account in Supabase Auth
+    if (form.password !== form.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
     const { data, error } = await supabase.auth.signUp({
       email: form.email,
       password: form.password,
@@ -60,9 +68,13 @@ export default function Register() {
         <p>Create your account to access the secure dashboard system.</p>
       </div>
 
-      <div className="auth-right">
-        <div className="auth-card">
-          <h2>Register</h2>
+      {/* RIGHT PANEL */}
+      <div className="register-right">
+
+        <div className="register-card">
+
+          <h2>Create Account</h2>
+          <p className="subtitle">Join DisasterAidConnect and start your journey</p>
 
           <form onSubmit={handleSubmit}>
             <input
@@ -94,11 +106,18 @@ export default function Register() {
             <button type="submit">Register</button>
           </form>
 
-          <div className="auth-link">
-            <Link to="/">Already have an account? Login</Link>
+          <div className="divider">
+            <span>OR</span>
           </div>
+
+          <p className="login-text">
+            Already have an account? <Link to="/">Log in</Link>
+          </p>
+
         </div>
+
       </div>
+
     </div>
   );
 }
