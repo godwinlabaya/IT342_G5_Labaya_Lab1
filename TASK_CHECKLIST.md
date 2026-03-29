@@ -36,17 +36,28 @@
 
 - Added updates on FRS 
   Commit: e169880
+  
+- .gitignore for backend and frontend
+  Commit: c3a2d78
+  
+- updated TASK_CHECKLIST
+  Commit: 239fdcd 
 
+- feat: added routing
+  Commit: 4531390 
 
+- feat(mobile): added mobile
+  Commit: 3dd9b39
+
+- feat: revised database
+  Commit: a618093
+
+- IT342 Phase 1 – User Registration and Login Completed
+  Commit: f2bc3da
+  
 ## IN-PROGRESS
-- Backend user registration API
-- Backend login API with authentication
-- React register page
-- React login page
+- None
 
 ## TODO
-- Protected dashboard/profile page
-- Logout functionality
-- Backend endpoint protection
-- Mobile application (Session 2)
+- None
 
